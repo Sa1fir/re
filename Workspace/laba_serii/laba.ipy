@@ -1,0 +1,39 @@
+'''
+фунция:
+y=1-(2x^3)/(1-x^2)        (3.5:+bes)
+y=(cos(2x-1))^(1/2)       [0:3.5]
+y=e^(-cos(2x))            (-bes:0)
+Интервал:[-0.5:4.5]
+Шаг: 0.25
+'''
+from tkinter import *
+from tkinter import ttk
+ 
+root = Tk()
+root.title("METANIT.COM")
+root.geometry("250x200") 
+ 
+# определяем данные для отображения
+people = [("Tom", 38, "tom@email.com"), ("Bob", 42, "bob@email.com"), ("Sam", 28, "sam@email.com")]
+ 
+# определяем столбцы
+columns = ("name", "age", "email")
+ 
+tree = ttk.Treeview(columns=columns, show="headings")
+tree.pack(fill=BOTH, expand=1)
+ 
+# определяем заголовки с выпавниваем по левому краю
+tree.heading("name", text="Имя", anchor=W)
+tree.heading("age", text="Возраст", anchor=W)
+tree.heading("email", text="Email", anchor=W)
+ 
+# настраиваем столбцы
+tree.column("#1", stretch=NO, width=70)
+tree.column("#2", stretch=NO, width=60)
+tree.column("#3", stretch=NO, width=100)
+ 
+# добавляем данные
+for person in people:
+    tree.insert("", END, values=person)
+ 
+root.mainloop()
